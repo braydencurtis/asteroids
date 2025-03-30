@@ -57,7 +57,7 @@ def main():
             for bullet in shots:
                 if asteroid.collision_detect(bullet):
                     bullet.kill()
-                    asteroid.kill()
+                    asteroid.split()
                     break
         
         # Draw all drawable game objects
