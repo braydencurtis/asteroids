@@ -2,6 +2,8 @@
 # the open-source pygame library
 # throughout this file
 import pygame
+import sys
+
 from asteroid import *
 from constants import *
 from player import *
@@ -33,6 +35,10 @@ def main():
                 return
             
         updatable.update(dt)
+        for asteroid in asteroids:
+            if asteroid.collision_detect(player):
+                print("Game Over!")
+                sys.exit()
         screen.fill("black")
         for entity in drawable:
             entity.draw(screen)  # Assuming each entity has a draw method that takes the screen
