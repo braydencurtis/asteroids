@@ -17,7 +17,7 @@ def main():
     # Set up the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     
-    # Sett the frame rate and get dt
+    # Set the frame rate and get dt
     clock = pygame.time.Clock()
     dt = 0
 
@@ -28,6 +28,8 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable)
+    shots = pygame.sprite.Group()
+    Shot.containers = (updatable, drawable, shots)
 
     # Create the asteroid field
     asteroid_field = AsteroidField()
