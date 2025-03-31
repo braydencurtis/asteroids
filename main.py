@@ -9,6 +9,7 @@ from asteroid import *
 from constants import *
 from player import *
 from asteroidfield import *
+from score import *
 
 def main():
     # Initialize pygame
@@ -20,6 +21,9 @@ def main():
     # Set the frame rate and get dt
     clock = pygame.time.Clock()
     dt = 0
+
+    #score system
+    score = 0
 
     # Create sprite groups
     updatable = pygame.sprite.Group()
@@ -57,7 +61,9 @@ def main():
             for bullet in shots:
                 if asteroid.collision_detect(bullet):
                     bullet.kill()
-                    asteroid.split()
+                    asteroid.split()  
+                    score += 1
+                    print("Score:", score)
                     break
         
         # Draw all drawable game objects
