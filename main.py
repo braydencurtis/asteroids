@@ -23,7 +23,7 @@ def main():
     dt = 0
 
     #score system
-    score = 0
+    current_score = 0
 
     # Create sprite groups
     updatable = pygame.sprite.Group()
@@ -62,8 +62,9 @@ def main():
                 if asteroid.collision_detect(bullet):
                     bullet.kill()
                     asteroid.split()  
-                    score += 1
-                    print("Score:", score)
+                    #score += 1
+                    #print("Score:", score)
+                    current_score =  update_score(current_score)
                     break
         
         # Draw all drawable game objects
